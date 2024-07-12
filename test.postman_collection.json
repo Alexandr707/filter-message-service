@@ -1,0 +1,28 @@
+{
+	"info": {
+		"_postman_id": "6cab50e0-0183-4abd-b243-b88b6fc67391",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28788015"
+	},
+	"item": [
+		{
+			"name": "localhost:4200/messages/filter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"messages\": [\r\n        { \"boolean\": true },\r\n        { \"boolean\": false },\r\n        { \"string\": \"string\" },\r\n        { \"string\": \"$StartsWith\" },\r\n        { \"string\": \"EndsWith$\" },\r\n        { \"string\": \"string contains $$ double dollar symbol\" },\r\n        { \"number\": 12 },\r\n        { \"date\": \"2024-07-12T04:58:33.065Z\" },\r\n        { \"field1\": 122, \"field2\": \"2030-01-01T12:00:00.000Z\" },\r\n        { \"field1\": 123, \"field2\": \"2030-01-01T12:00:00.000Z\" },\r\n        { \"field1\": 124, \"field2\": \"2030-01-01T12:00:00.000Z\" },\r\n        { \"field1\": 22, \"field2\": \"2030-01-01T12:00:00.000Z\" }\r\n      ],\r\n      \"filter\": {\r\n          \"type\": \"and\",\r\n          \"filters\": [\r\n            {\r\n              \"type\": \"or\",\r\n              \"filters\": [\r\n                {\"field\": \"field1\", \"type\": \"number\", \"operation\": \"lt\", \"value\": 123},\r\n                {\"field\": \"field1\", \"type\": \"number\", \"operation\": \"gt\", \"value\": 123}\r\n              ]\r\n            },\r\n            {\"field\": \"field2\", \"type\": \"date\", \"operation\": \"after\", \"value\": \"2024-07-12T05:03:04.543Z\"},\r\n            {\"field\": \"field1\", \"type\": \"number\", \"operation\": \"eq\", \"value\": \"22\"}\r\n          ]\r\n        }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:4200/messages/filter"
+			},
+			"response": []
+		}
+	]
+}
